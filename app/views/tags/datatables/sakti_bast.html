@@ -1,0 +1,84 @@
+<script type="text/javascript" src="@{'/public/plugin/DataTables-1.10.16/js/jquery.dataTables.min.js'}"></script>
+<script type="text/javascript" src="@{'/public/plugin/DataTables-1.10.16/js/dataTables.bootstrap.js'}"></script>
+<script type="text/javascript" src="@{'/public/plugin/api/fnFilterOnReturn.js'}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on('hidden.bs.modal', function (e) {
+            $(e.target).removeData('bs.modal');
+        });
+        var oTable = $('#listUser').dataTable({
+            "aoColumns" : [
+                { "sWidth": "1%",  "bSortable": false },
+                {"sWidth" : "19%"},
+                {"sWidth" : "20%"},
+                {"sWidth" : "20%"},
+                {"sWidth" : "10%"},
+                {"sWidth" : "10%"},
+                {"sWidth" : "10%"},
+                {"sWidth" : "10%"},
+
+            ],
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": true,
+            "sAjaxSource": "",
+            "fnDrawCallback": function ( oSettings ) {
+                /* Need to redo the counters if filtered or sorted */
+                if ( oSettings ){
+                    for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                    {
+                       $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1+oSettings._iDisplayStart);
+                    }
+                }
+
+                /* search on enter column filter */
+                $('.text_filter')
+			    .unbind()
+			    .bind('keyup', function(e){
+			    	if (e.keyCode != 13 ) return;
+		  			else
+		  				oTable.fnFilter(this.value, $(this).closest('tfoot th').index());
+			    });
+            },
+            "language": {
+                "sLengthMenu":   "Tampilkan _MENU_ entri",
+                "sZeroRecords":  "Tidak ditemukan data yang sesuai",
+                "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+                "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",
+                "sInfoFiltered": "",
+                "sInfoPostFix":  "",
+                "sSearch":       "Cari:",
+                "sUrl":          "",
+                "oPaginate": {
+                    "sFirst":    "Pertama",
+                    "sPrevious": "Sebelumnya",
+                    "sNext":     "Selanjutnya",
+                    "sLast":     "Terakhir"
+                },
+                "processing": 'Memproses...',
+            },
+        });
+        oTable.columnFilter({
+            aoColumns: [
+                null,
+                { type: "text" },
+                { type: "text" },
+                { type: "text" },
+                { type: "text" },
+                null,
+                null
+            ]
+        });
+        oTable.fnFilterOnReturn(); //Search only on enter for global search
+
+        /*
+        * Digunakan jika label pada select dan value pada select berbeda
+        * Silakan lihat tag select di userctr/index.html
+        */
+        $('#roleSelect').change(function(){
+            oTable.fnFilter($(this).val(), 5);
+        });
+    });
+</script>

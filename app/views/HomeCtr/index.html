@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set title:'SAKTI' /}
+
+<style>
+    /* CSS untuk mengatur form login di tengah-tengah layar */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding-left: 20px; /* Jarak sisi kiri */
+      padding-right: 20px; /* Jarak sisi kanan */
+    }
+
+    .login-form {
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+</style>
+
+<div class="login-container">
+    <div class="login-form">
+        <h2 class="text-center mb-4">Login</h2>
+        <form  action="@{HomeCtr.login()}" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="remember">
+                <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+</div>

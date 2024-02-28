@@ -1,0 +1,81 @@
+#{extends 'main.html' /}
+#{set title:'SAKTI' /}
+<script type="text/javascript" src="@{'/public/plugin/DataTables/DataTables-1.10.16/js/dataTables.bootstrap.js'}"></script>
+<script type="text/javascript" src="@{'/public/plugin/DataTables/Plugins/api/fnFilterOnReturn.js'}"></script>
+<link rel="stylesheet" href="@{'/public/plugin/DataTables/DataTables-1.10.16/css/dataTables.bootstrap.css'}" type="text/css"/>
+<link rel="stylesheet" href="@{'public/plugin/select2-4.0.2/dist/css/select2.min.css'}" type="text/css"/>
+
+
+<style>
+    /* Temporary styles for demonstration purpose */
+    .content-area {
+      padding-top: 56px;
+    }
+    @media (min-width: 992px) {
+      .content-area {
+        padding-left: 20px;
+      }
+    }
+
+    /* New styles for navbar and sidebar */
+    .navbar-custom {
+      background-color: #f0f8ff; /* Warna putih kebiruan */
+    }
+
+    .sidebar-custom {
+      background-color: #f0f8ff; /* Warna putih kebiruan */
+    }
+</style>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-custom">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@{HomeCtr.logout()}" >Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="bg-light text-dark fixed-top sidebar-custom" style="width: 220px; height: 100vh; border-right: 0px solid #ccc; margin-top: 50px;">
+    <div class="p-4">
+        <h5>Pembayaran</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#ruhPembayaranCollapse" role="button" aria-expanded="false" aria-controls="ruhPembayaranCollapse">RUH Pembayaran</a>
+                <div class="collapse show" id="ruhPembayaranCollapse" style="margin-left: 10px;">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Catat/Ubah SPP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Input FA Detail</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Renkas Harian</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Catat PPDH</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- Content -->
+<div class="container mt-3 content-area">
+    <div class="container">
+
+    </div>
+</div>
