@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="@{'public/plugin/select2-4.0.2/dist/css/select2.min.css'}" type="text/css"/>
+		<script type="text/javascript" src="@{'public/plugin/select2-4.0.2/dist/js/select2.min.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jquery-1.11.3.min.js'}"></script>
+		<script type="text/javascript" src="@{'/public/plugin/bootstrap-3.3.5-dist/js/bootstrap.min.js'}"></script>
+		<script type="text/javascript" src="@{'/public/plugin/jquery-ui-1.11.4.custom/jquery-ui.min.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jquery.dataTables.columnFilter.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/jquery.ticker.min.js'}"></script>
+		<script type="text/javascript" src="@{'/public/javascripts/loader.js'}"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<title>RUH Akun</title>
+		<style>
+			body {
+				padding: 20px;
+			}
+
+			.table {
+				width: 100%;
+			}
+
+			.header-table-bg {
+				background-color: #ddd;
+			}
+
+			.gray {
+				color: #666;
+			}
+
+			.center-content {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.card {
+				border: 1px solid #dddddd;
+				border-radius: 10px;
+				padding: 20px;
+			}
+
+			.coa-structure {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				margin-bottom: 10px;
+			}
+
+			.coa-structure-left {
+				width: 30%;
+			}
+
+			.coa-structure-right {
+				width: 70%;
+				padding-left: 20px;
+				display: flex;
+				justify-content: space-between;
+				gap: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="card">
+			<table class="table">
+				<thead class="header-table-bg">
+					<tr>
+						<th scope="col" class="gray">Akun</th>
+						<th scope="col" class="gray">Program</th>
+						<th scope="col" class="gray">Output</th>
+						<th scope="col" class="gray">SD</th>
+						<th scope="col" class="gray">Pagu</th>
+						<th scope="col" class="gray">Sisa Pagu</th>
+						<th scope="col" class="gray">Nilai Pembayaran</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="7">Data Kosong</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="center-content">
+				<nav style="margin-top: 14px">
+					<ul class="pagination">
+						<li class="page-item disabled">
+							<a class="page-link">Previous</a>
+						</li>
+						<li class="page-item">
+							<a class="page-link" href="#">1</a>
+						</li>
+						<li class="page-item active" aria-current="page">
+							<a class="page-link" href="#">2</a>
+						</li>
+						<li class="page-item">
+							<a class="page-link" href="#">3</a>
+						</li>
+						<li class="page-item">
+							<a class="page-link" href="#">Next</a>
+						</li>
+					</ul>
+				</nav>
+				<select class="form-select" style="width: 75px;">
+					<option value="10">10</option>
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+				</select>
+			</div>
+
+			<div class="card" style="margin-top: 10px;">
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Satker</div>
+							<div><input type="text" class="form-control" name="kode-satker" placeholder="Kode Satker"></div>
+						</div>
+					</div>
+					<div class="coa-structure-right"><input type="text" class="form-control" name="nama-satker" placeholder="Nama Satker"></div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Kementerian, Eselon 1, Program</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="kode-kementerian" placeholder="Kementerian" style="width: 200px;">
+						<input type="text" class="form-control" name="eselon-1" placeholder="Eselon 1" style="width: 200px;">
+						<input type="text" class="form-control" name="program" placeholder="Program">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Kegiatan, Output</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="kegiatan" placeholder="Kegiatan" style="width: 50%;">
+						<input type="text" class="form-control" name="output" placeholder="Output" style="width: 50%;">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Akun</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="akun" placeholder="Akun">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>KPPN</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="kppn" placeholder="KPPN">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>S.Dana, S.Penarikan, No. Register</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="s-dana" placeholder="S.Dana" style="width: 30%;">
+						<input type="text" class="form-control" name="s-penarikan" placeholder="S.Penarikan" style="width: 30%;">
+						<input type="text" class="form-control" name="no-penarikan" placeholder="No. Register" style="width: 40%;">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Rekening Bank</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="rekening-bank" placeholder="Rekening Bank">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Kewenangan</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="kewenangan" placeholder="Kewenangan">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Lokasi (Provinsi, Kab.Kota)</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="provinsi" placeholder="Provinsi" style="width: 40%;">
+						<input type="text" class="form-control" name="kab-kota" placeholder="Kab/Kota" style="width: 40%;">
+						<button type="submit" class="btn btn-primary">Cari Lokasi</button>
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Tipe Anggaran</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="tipe-anggaran" placeholder="Tipe Anggaran">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>IntraCo</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="intra-co" placeholder="IntraCo">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Cadangan</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="cadangan" placeholder="Cadangan">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Kode COA</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="kode-coa" placeholder="Kode Coa">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Kode Valas / Nilai Valas</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="provinsi" placeholder="Kode Valas" style="width: 50%;">
+						<input type="text" class="form-control" name="kab-kota" placeholder="Nilai Valas" style="width: 50%;">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Nilai</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="nilai-1" placeholder="" style="width: 40%;">
+						<input type="text" class="form-control" name="nilai-2" placeholder="" style="width: 40%;">
+						<button type="submit" class="btn btn-primary">Detail COA</button>
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Pagu</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="pagu" placeholder="Pagu">
+					</div>
+				</div>
+
+				<div class="coa-structure">
+					<div class="coa-structure-left">
+						<div class="coa-structure">
+							<div>Sisa Pagu (FA)</div>
+						</div>
+					</div>
+					<div class="coa-structure-right">
+						<input type="text" class="form-control" name="sisa-pagi" placeholder="Sisa Pagu">
+					</div>
+				</div>
+
+				<div style="margin-top: 10px; display: flex; flex-direction: row; gap: 5px; justify-content: flex-end;">
+					<button type="submit" class="btn btn-primary" style="width: 100px;">Rekam</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100px;">Ubah</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100px;">Hapus</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100px;">Simpan</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100px;">Batal</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100px;">Keluar</button>
+				</div>
+			</div>
+		</body>
+	</body>
+</html>
